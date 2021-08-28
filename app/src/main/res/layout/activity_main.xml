@@ -39,8 +39,16 @@
     </RelativeLayout>
 
     <TextView
+        android:text="Select Item"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:layout_gravity="end"
+        android:layout_marginEnd="20dp"
+        android:textSize="18sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+
 
 
 
