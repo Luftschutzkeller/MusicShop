@@ -5,6 +5,8 @@ import androidx.core.content.ContextCompat;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,6 +15,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getWindow().setStatusBarColor(ContextCompat.getColor(MainActivity.this, R.color.design_default_color_primary_variant));
+           }
+
+    public void increaseQuantity(View view) {
+        TextView quantityTextView = findViewById(R.id.quantityTextView);
+        quantityTextView.setText("1");
     }
 }
