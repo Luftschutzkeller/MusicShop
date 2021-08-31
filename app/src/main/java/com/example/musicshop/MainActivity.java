@@ -6,13 +6,18 @@ import androidx.core.content.ContextCompat;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     int quantity =0;
     Spinner spinner;
+    ArrayList spinnerArraylist;
+    ArrayAdapter spinnerAdapter;
 
 
     @Override
@@ -21,6 +26,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         spinner = findViewById(R.id.spinner);
+        spinnerArraylist = new ArrayList();
+
+        spinnerArraylist.add("guitar");
+        spinnerArraylist.add("drums");
+        spinnerArraylist.add("keyboard");
+        spinnerArraylist.add("notes");
+
+        spinnerAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, spinnerArraylist);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(spinnerAdapter);
+
 
            }
 
