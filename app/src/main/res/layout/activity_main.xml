@@ -127,6 +127,7 @@
             android:layout_marginStart="110dp"
             android:layout_marginTop="5dp"
             android:background="#613535"
+            android:onClick="decreaseQuantity"
             android:textColor="@android:color/white" />
 
         <TextView
