@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_main);
 
         spinner = findViewById(R.id.spinner);
+        spinner.setOnItemSelectedListener(this);
         spinnerArraylist = new ArrayList();
 
         spinnerArraylist.add("guitar");
@@ -46,10 +47,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spinner.setAdapter(spinnerAdapter);
 
         goodsMap = new HashMap();
-        goodsMap.put("guitar", 500);
-        goodsMap.put("drums", 1500);
-        goodsMap.put("keyboard", 1000);
-        goodsMap.put("notes", 700);
+        goodsMap.put("guitar", 500.0);
+        goodsMap.put("drums", 1500.0);
+        goodsMap.put("keyboard", 1000.0);
+        goodsMap.put("notes", 700.0);
 
 
 
