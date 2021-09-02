@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
     Spinner spinner;
     ArrayList spinnerArraylist;
     ArrayAdapter spinnerAdapter;
+
+    HashMap goodsMap;
 
 
     @Override
@@ -36,6 +38,13 @@ public class MainActivity extends AppCompatActivity {
         spinnerAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, spinnerArraylist);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(spinnerAdapter);
+
+        goodsMap = new HashMap();
+        goodsMap.put("guitar", 500);
+        goodsMap.put("drums", 1500);
+        goodsMap.put("keyboard", 1000);
+        goodsMap.put("notes", 700);
+
 
 
            }
