@@ -6,13 +6,15 @@ import androidx.core.content.ContextCompat;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.*;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     int quantity =0;
     Spinner spinner;
@@ -20,6 +22,10 @@ public class MainActivity extends AppCompatActivity {
     ArrayAdapter spinnerAdapter;
 
     HashMap goodsMap;
+
+    String goodsName;
+
+    double price;
 
 
     @Override
@@ -62,6 +68,21 @@ public class MainActivity extends AppCompatActivity {
         }
         TextView quantityTextView = findViewById(R.id.quantityTextView);
         quantityTextView.setText("" + quantity);
+
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        goodsName = spinner.getSelectedItem().toString();
+        price = (double)goodsMap.get(goodsName);
+        TextView priceTextView = findViewById(R.id.priceTextView);
+        priceTextView.setText("" + quantity * price);
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
 
     }
 }
