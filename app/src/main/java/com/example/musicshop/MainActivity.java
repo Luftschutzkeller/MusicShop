@@ -1,20 +1,17 @@
 package com.example.musicshop;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
-import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.Switch;
 import android.widget.TextView;
 
-import java.util.*;
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -35,6 +32,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        createSpinner();
+
+        createMap();
+
+           }
+    void createSpinner() {
         spinner = findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(this);
         spinnerArraylist = new ArrayList();
@@ -47,16 +50,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         spinnerAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, spinnerArraylist);
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(spinnerAdapter);
-
+           }
+    void createMap() {
         goodsMap = new HashMap();
         goodsMap.put("guitar", 500.0);
         goodsMap.put("drums", 1500.0);
         goodsMap.put("keyboard", 1000.0);
         goodsMap.put("notes", 700.0);
 
+    }
 
-
-           }
 
     public void increaseQuantity(View view) {
         quantity = quantity + 1;
@@ -98,6 +101,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 break;
             case "notes":
                 goodsImageView.setImageResource(R.drawable.notes);
+                break;
+            default: goodsImageView.setImageResource(R.drawable.yamaha);
                 break;
         }
     }
