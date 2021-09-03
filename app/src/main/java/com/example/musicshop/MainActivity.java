@@ -9,7 +9,9 @@ import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import java.util.*;
@@ -60,6 +62,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         quantity = quantity + 1;
         TextView quantityTextView = findViewById(R.id.quantityTextView);
         quantityTextView.setText("" + quantity);
+        TextView priceTextView = findViewById(R.id.priceTextView);
+        priceTextView.setText("" + quantity * price);
     }
 
     public void decreaseQuantity(View view) {
@@ -69,21 +73,38 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
         TextView quantityTextView = findViewById(R.id.quantityTextView);
         quantityTextView.setText("" + quantity);
-
-    }
-
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        goodsName = spinner.getSelectedItem().toString();
-        price = (double)goodsMap.get(goodsName);
         TextView priceTextView = findViewById(R.id.priceTextView);
         priceTextView.setText("" + quantity * price);
 
     }
 
     @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        goodsName = spinner.getSelectedItem().toString();
+        price = (double) goodsMap.get(goodsName);
+        TextView priceTextView = findViewById(R.id.priceTextView);
+        priceTextView.setText("" + quantity * price);
 
-
+        ImageView goodsImageView = findViewById(R.id.goodsImageView);
+        switch (goodsName) {
+            case "guitar":
+                goodsImageView.setImageResource(R.drawable.yamaha);
+                break;
+            case "drums":
+                goodsImageView.setImageResource(R.drawable.drums);
+                break;
+            case "keyboard":
+                goodsImageView.setImageResource(R.drawable.keyboard);
+                break;
+            case "notes":
+                goodsImageView.setImageResource(R.drawable.notes);
+                break;
+        }
     }
+
+        @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {}
+
+
+
 }
