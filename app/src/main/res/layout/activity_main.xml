@@ -59,7 +59,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/Yamaha"
+        android:src="@drawable/yamaha"
         android:scaleType="centerCrop"
         />
 
@@ -160,6 +160,7 @@
 
     <Button
         android:text="Add to cart"
+        android:onClick="addToCart"
         android:layout_marginTop="50dp"
         android:background="#613535"
         android:layout_width="match_parent"
